@@ -7,7 +7,7 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-// NewId returns a new UUID version 4.
+// NewId returns a new UUID in version 4.
 func NewId() string {
 	return uuid.NewV4().String()
 }
