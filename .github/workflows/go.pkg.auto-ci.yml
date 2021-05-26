@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   test:
-    name Go Tests
+    name: Go Tests
     strategy:
       matrix:
         platform: [ubuntu-latest]
