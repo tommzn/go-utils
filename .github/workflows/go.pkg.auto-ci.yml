@@ -17,7 +17,7 @@ jobs:
         run: |
           export GO_VERSION=`egrep -i '^go [1-2][.][0-9]+$' go.mod | sed 's/go //'`
           echo "::set-env name=GO_VERSION::$GO_VERSION"
-      - run: echo "Use Go version ${{ GO_VERSION }}" 
+      - run: echo "Use Go version " $GO_VERSION 
       #- name: Install Go
       #  uses: actions/setup-go@v2
       #  with:
