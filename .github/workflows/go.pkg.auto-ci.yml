@@ -14,8 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Get Go version
-        run: GO_VERSION=`egrep -i '^go [1-2][.][0-9]+$' go.mod | sed 's/go //'`
-        run: Use Go version ${{ GO_VERSION }}
+        run: GO_VERSION=`egrep -i '^go [1-2][.][0-9]+$' go.mod | sed 's/go //'`; echo "Use Go version ${{ GO_VERSION }}" 
       #- name: Install Go
       #  uses: actions/setup-go@v2
       #  with:
