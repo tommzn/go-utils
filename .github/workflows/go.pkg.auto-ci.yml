@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Show Content
-        run: ls -al
       - name: Get Go version
         run: GO_VERSION=`egrep -i '^go [1-2][.][0-9]+$' go.mod | sed 's/go //'`
         run: Use Go version ${{ GO_VERSION }}
