@@ -1,0 +1,25 @@
+name: Go Package Release Workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    strategy:
+      matrix:
+        go-version: [1.13.x]
+        platform: [ubutuntu-latest, macos-latest, window-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Show Content
+        run: ls -al
+      - name: Get Go version
+        run: GO_VERSION=`egrep -i '^go [1-2][.][0-9]+$' go.mod | sed 's/go //'`
+      #- name: Install Go
+      #  uses: actions/setup-go@v2
+      #  with:
+      #    go-version: ${{ matrix.go-version }}
+      #- name: Run tests
+      #  run: go test -v ./.. -covermode=count
