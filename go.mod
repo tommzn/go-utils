@@ -1,6 +1,6 @@
 module github.com/tommzn/go-utils
 
-go 1.23
+go 1.24.6
 
 require (
 	github.com/satori/go.uuid v1.2.0
