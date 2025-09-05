@@ -2,9 +2,7 @@
 package utils
 
 import (
-	"regexp"
-
-	uuid "github.com/satori/go.uuid"
+	uuid "github.com/fossoreslp/uuid"
 )
 
 // NewId returns a new UUID in version 4.
@@ -12,8 +10,13 @@ func NewId() string {
 	return uuid.NewV4().String()
 }
 
+// NewV7Id returns a version 7 (Timestamp + Random, Recommended Sortable) UUID.
+func NewV7Id() string {
+	return uuid.NewV7().String()
+}
+
 // IsId returns true if passed id is a UUID version 4.
 func IsId(id string) bool {
-	r := regexp.MustCompile("^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4[a-fA-F0-9]{3}-[8|9|aA|bB][a-fA-F0-9]{3}-[a-fA-F0-9]{12}$")
-	return r.MatchString(id)
+	_, err := uuid.Parse(id)
+	return err == nil
 }

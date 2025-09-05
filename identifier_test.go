@@ -17,12 +17,17 @@ func TestIdentifierTestSuite(t *testing.T) {
 	suite.Run(t, new(IdentifierTestSuite))
 }
 
-// TestGenrateIds test generating new ids.
-func (suite *IdentifierTestSuite) TestGenrateIds() {
+// TestGenerateIds test generating new ids.
+func (suite *IdentifierTestSuite) TestGenerateIds() {
 
 	id1 := NewId()
 	suite.Len(id1, 36)
 	_, err := uuid.FromString(id1)
+	suite.Nil(err)
+
+	id2 := NewV7Id()
+	suite.Len(id2, 36)
+	_, err = uuid.FromString(id2)
 	suite.Nil(err)
 }
 

@@ -3,6 +3,7 @@ module github.com/tommzn/go-utils
 go 1.24.6
 
 require (
+	github.com/fossoreslp/uuid v1.0.0
 	github.com/satori/go.uuid v1.2.0
 	github.com/stretchr/testify v1.7.0
 )
