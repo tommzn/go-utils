@@ -2,7 +2,7 @@
 package utils
 
 import (
-	uuid "github.com/fossoreslp/uuid"
+	"github.com/fossoreslp/uuid"
 )
 
 // NewId returns a new UUID in version 4.
