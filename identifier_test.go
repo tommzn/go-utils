@@ -3,7 +3,7 @@ package utils
 import (
 	"testing"
 
-	uuid "github.com/satori/go.uuid"
+	"github.com/fossoreslp/uuid"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -17,18 +17,24 @@ func TestIdentifierTestSuite(t *testing.T) {
 	suite.Run(t, new(IdentifierTestSuite))
 }
 
-// TestGenrateIds test generating new ids.
-func (suite *IdentifierTestSuite) TestGenrateIds() {
+// TestGenerateIds test generating new ids.
+func (suite *IdentifierTestSuite) TestGenerateIds() {
 
 	id1 := NewId()
 	suite.Len(id1, 36)
-	_, err := uuid.FromString(id1)
+	_, err := uuid.Parse(id1)
+	suite.Nil(err)
+
+	id2 := NewV7Id()
+	suite.Len(id2, 36)
+	_, err = uuid.Parse(id2)
 	suite.Nil(err)
 }
 
 // Test asserting ids in UUID version 4.
-func (suite *IdentifierTestSuite) TestValidaeIds() {
+func (suite *IdentifierTestSuite) TestValidateIds() {
 
 	suite.True(IsId(uuid.NewV4().String()))
+	suite.True(IsId(uuid.NewV7().String()))
 	suite.False(IsId("xxx"))
 }
