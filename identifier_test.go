@@ -31,10 +31,18 @@ func (suite *IdentifierTestSuite) TestGenerateIds() {
 	suite.Nil(err)
 }
 
-// Test asserting ids in UUID version 4.
+// TestUniqueIds verifies that generated IDs are unique.
+func (suite *IdentifierTestSuite) TestUniqueIds() {
+	suite.NotEqual(NewId(), NewId())
+	suite.NotEqual(NewV7Id(), NewV7Id())
+}
+
+// TestValidateIds tests IsId with valid and invalid inputs.
 func (suite *IdentifierTestSuite) TestValidateIds() {
 
 	suite.True(IsId(uuid.NewV4().String()))
 	suite.True(IsId(uuid.NewV7().String()))
 	suite.False(IsId("xxx"))
+	suite.False(IsId(""))
+	suite.False(IsId("12345678-1234-1234-1234-12345678"))
 }

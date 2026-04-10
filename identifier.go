@@ -15,7 +15,7 @@ func NewV7Id() string {
 	return uuid.NewV7().String()
 }
 
-// IsId returns true if passed id is a UUID version 4.
+// IsId returns true if passed id is a valid UUID.
 func IsId(id string) bool {
 	_, err := uuid.Parse(id)
 	return err == nil
