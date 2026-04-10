@@ -33,6 +33,16 @@ func (stack *ErrorStack) Error() string {
 	return strings.Join(errorStrings, "\n")
 }
 
+// HasErrors returns true if there's at least one error in the stack.
+func (stack *ErrorStack) HasErrors() bool {
+	return len(stack.errorList) > 0
+}
+
+// Len returns the number of errors in the stack.
+func (stack *ErrorStack) Len() int {
+	return len(stack.errorList)
+}
+
 // AsError returns nil of there's no error in internal stack or a new erros
 // which contains all existing errors, composed by new line.
 func (stack *ErrorStack) AsError() error {
