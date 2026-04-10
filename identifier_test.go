@@ -3,7 +3,7 @@ package utils
 import (
 	"testing"
 
-	uuid "github.com/satori/go.uuid"
+	"github.com/google/uuid"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -22,13 +22,13 @@ func (suite *IdentifierTestSuite) TestGenrateIds() {
 
 	id1 := NewId()
 	suite.Len(id1, 36)
-	_, err := uuid.FromString(id1)
+	_, err := uuid.Parse(id1)
 	suite.Nil(err)
 }
 
 // Test asserting ids in UUID version 4.
 func (suite *IdentifierTestSuite) TestValidaeIds() {
 
-	suite.True(IsId(uuid.NewV4().String()))
+	suite.True(IsId(uuid.New().String()))
 	suite.False(IsId("xxx"))
 }

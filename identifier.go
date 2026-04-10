@@ -4,12 +4,12 @@ package utils
 import (
 	"regexp"
 
-	uuid "github.com/satori/go.uuid"
+	"github.com/google/uuid"
 )
 
 // NewId returns a new UUID in version 4.
 func NewId() string {
-	return uuid.NewV4().String()
+	return uuid.New().String()
 }
 
 // IsId returns true if passed id is a UUID version 4.
