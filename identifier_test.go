@@ -26,6 +26,10 @@ func TestNewV7Id(t *testing.T) {
 
 	_, err := uuid.Parse(id)
 	require.NoError(t, err)
+
+	// Assert the version nibble (position 14 in the canonical UUID string) is '7'.
+	require.GreaterOrEqual(t, len(id), 15, "UUID too short to read version nibble")
+	assert.Equal(t, uint8('7'), id[14], "UUID should be version 7")
 }
 
 func TestGeneratedIdsAreUnique(t *testing.T) {

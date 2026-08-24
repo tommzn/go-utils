@@ -1,4 +1,3 @@
-// Package utils provides several helper functions for Go projects.
 package utils
 
 import (
@@ -7,7 +6,7 @@ import (
 )
 
 // ErrorStack handles a collection of errors. Useful e.g. in a loop where you
-// want to collect every error that occured instead of stopping at the first
+// want to collect every error that occurred instead of stopping at the first
 // one.
 type ErrorStack struct {
 	errorList []error
