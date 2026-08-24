@@ -1,9 +1,9 @@
 module github.com/tommzn/go-utils
 
-go 1.24.6
+go 1.25.0
 
 require (
-	github.com/fossoreslp/uuid v1.0.0
+	github.com/fossoreslp/uuid v1.1.0
 	github.com/stretchr/testify v1.11.1
 )
 
